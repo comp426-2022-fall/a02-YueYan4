@@ -77,10 +77,12 @@ var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude
 // Make a request
 const response = await fetch(url);
 
-//if (args.j){
+if (args.j){
 // Get the data from the request
   const data = await response.json();
-
   console.log(data)
   process.exit()
-
+}  
+const data = await response.json()
+const pretty = JSON.stringify(data)
+console.log(pretty)
