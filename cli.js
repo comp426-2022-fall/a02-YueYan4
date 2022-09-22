@@ -28,7 +28,6 @@ if (args.h) {
   process.exit()
 }
 
-console.log(args)
 //const moment = require('moment-timezone')
 
 import moment from 'moment'
@@ -39,8 +38,7 @@ import 'moment-timezone'
 import fetch from 'node-fetch'
 
 //const fetch = require('fetch')
-
-const lat = 0;
+var lat = 0;
 
 if (args.n) {
  lat = args.n
@@ -50,7 +48,7 @@ if (args.s) {
   lat = args.s
   lat = lat * -1
 }
-const lo = 0
+var lo = 0
 
 if (args.e){
  lo = args.e
@@ -61,12 +59,20 @@ if (args.w) {
   lo = lo * -1
 }
 
-const tz = args.z
+var tz = args.z
 
-const days = 1
-var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&timezone=' + tz + '&past_days=0'
+var days = 0
+
+if (args.d){
+ days = args.d
+}
+
+var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&timezone=' + tz + '&past_days=' + days
 
 // Make a request
 const response = await fetch(url);
 
+// Get the data from the request
+const data = await response.json();
 
+console.log(data)
