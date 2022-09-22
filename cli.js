@@ -33,7 +33,7 @@ if (args.h) {
 import moment from 'moment'
 import 'moment-timezone'
 
-//const timezone = moment.tz.guest()
+const timezone = moment.tz.guess()
 
 import fetch from 'node-fetch'
 
@@ -59,9 +59,14 @@ if (args.w) {
   lo = lo * -1
 }
 
-var tz = args.z
-
-var days = 0
+var tz = moment.tz.guess()
+if (args.z) {
+  tz = args.z
+}
+if (args.t) {
+ tz = args.t
+}
+var days = 1
 
 if (args.d){
  days = args.d
@@ -72,7 +77,10 @@ var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude
 // Make a request
 const response = await fetch(url);
 
+//if (args.j){
 // Get the data from the request
-const data = await response.json();
+  const data = await response.json();
 
-console.log(data)
+  console.log(data)
+  process.exit()
+

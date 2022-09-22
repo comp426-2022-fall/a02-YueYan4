@@ -2,7 +2,7 @@
   "dependencies": {
     "jq": "^1.7.2",
     "minimist": "^1.2.6",
-    "moment": "^2.9.0",
+    "moment": "^2.18.1",
     "moment-timezone": "^0.5.37",
     "node-fetch": "^3.2.10"
   },
