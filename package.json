@@ -1,0 +1,21 @@
+{
+  "dependencies": {
+    "jq": "^1.7.2",
+    "minimist": "^1.2.6",
+    "moment-timezone": "^0.5.37",
+    "node-fetch": "^3.2.10"
+  },
+  "type": "module",
+  "bin": {
+    "galosh.js": "./cli.js"
+  },
+  "name": "galosh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node cli.js -n 35.92 -w 79.05 -z America/New_York"
+  },
+  "author": "YueYan4",
+  "license": "GPL-3.0-or-later",
+  "description": ""
+}
