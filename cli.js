@@ -68,7 +68,7 @@ if (args.t) {
 }
 var days = 1
 
-if (args.d){
+if (args.d || args.d == 0){
  days = args.d
 }
 
@@ -81,8 +81,40 @@ if (args.j){
 // Get the data from the request
   const data = await response.json();
   console.log(data)
+  if (data.daily.precipitation_hours[days] == 0){
+     console.log("You will not need your galoshes ")
+  }
+  else if(data.daily.precipitation_hours[days] != 0){
+     console.log("You might need your galoshes ")
+  }
+  if(days == 0) {
+    console.log("today.")
+  }
+  else if (days > 1) {
+    console.log("in " + days + " days.")
+  }
+  else if (days == 1) {
+    console.log("tomorrow.")
+  }
+
   process.exit()
 }  
 const data = await response.json()
 const pretty = JSON.stringify(data)
 console.log(pretty)
+if (data.daily.precipitation_hours[days] == 0){
+     console.log("You will not need your galoshes ")
+  }
+  else if(data.daily.precipitation_hours[days] != 0){
+     console.log("You might need your galoshes ")
+  }
+  if(days == 0) {
+    console.log("today.")
+  }
+  else if (days > 1) {
+    console.log("in " + days + " days.")
+  }
+  else if (days == 1) {
+    console.log("tomorrow.")
+  }
+
