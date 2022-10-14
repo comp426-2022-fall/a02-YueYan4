@@ -38,7 +38,7 @@ const timezone = moment.tz.guess()
 import fetch from 'node-fetch'
 
 //const fetch = require('fetch')
-var lat = args.n || arg.s * -1;
+var lat = args.n || args.s * -1;
 
 var lo = args.e || args.w * -1;
 
