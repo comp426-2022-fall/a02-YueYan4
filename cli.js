@@ -83,14 +83,14 @@ if (args.j){
   console.log(data)
   process.exit(0)
 }  
-const pretty = JSON.stringify(data)
-console.log(pretty)
-if (data.daily.precipitation_hours[days] == 0){
-     console.log("You will not need your galoshes ")
-  }
-  else if(data.daily.precipitation_hours[days] != 0){
-     console.log("You might need your galoshes ")
-  }
+//const pretty = JSON.stringify(data)
+//console.log(pretty)
+//if (data.daily.precipitation_hours[days] == 0){
+//     console.log("You will not need your galoshes ")
+//  }
+//  else if(data.daily.precipitation_hours[days] != 0){
+//     console.log("You might need your galoshes ")
+//  }
   if(days == 0) {
     console.log("today.")
   }
