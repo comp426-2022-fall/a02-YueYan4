@@ -72,8 +72,8 @@ if (args.d || args.d == 0){
  days = args.d
 }
 
-var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&daily=precipitation_hours&current_weather=true&temperature_unit=fahrenheit&timezone=' + tz + '&past_days=' + days
-
+var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&hourly=temperature_2m&current_weather=true&timezone=' + tz
+    
 // Make a request
 const response = await fetch(url);
 const data = await response.json();
