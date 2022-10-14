@@ -38,26 +38,10 @@ const timezone = moment.tz.guess()
 import fetch from 'node-fetch'
 
 //const fetch = require('fetch')
-var lat = 0;
+var lat = args.n || arg.s * -1;
 
-if (args.n) {
- lat = args.n
-}
+var lo = args.e || args.w * -1;
 
-if (args.s) {
-  lat = args.s
-  lat = lat * -1
-}
-var lo = 0
-
-if (args.e){
- lo = args.e
-}
-
-if (args.w) {
-  lo = args.w
-  lo = lo * -1
-}
 
 var tz = moment.tz.guess()
 if (args.z) {
@@ -72,7 +56,7 @@ if (args.d || args.d == 0){
  days = args.d
 }
 
-var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&hourly=temperature_2m&current_weather=true&timezone=' + tz
+var url = 'https://api.open-meteo.com/v1/forecast?latitude=' + lat + '&longitude=' + lo + '&hourly=temperature_2m&current_weather=true&timezone=' + tz + '&past_days=' + days
     
 // Make a request
 const response = await fetch(url);
